@@ -56,22 +56,9 @@
   </style>
 </head>
 <body>
-  <h1>Undertale - Supernova FX</h1>
-  <input type="text" id="urlInput" placeholder="Enter password...">
-  <button onclick="launch()">Launch</button>
-
-  <script>
-    function launch() {
-      const input = document.getElementById('urlInput').value.trim();
-      if (!input) return;
-
-      const encoded = encodeURIComponent(input);
-      const proxy = "https://wigdos-inc.github.io/Undertale-HT";
-    }
-  </script>
-
+  
   <div class="game-grid">
-    <button onclick="launchStealth(encoded + proxy)">Launch</button>
+    <button onclick="launchStealth(https://wigdos-inc.github.io/Undertale-HTML/)">Launch</button>
 
   <script>
     function launchStealth(url) {
