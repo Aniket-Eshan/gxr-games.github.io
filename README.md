@@ -2,8 +2,8 @@
 
 # Intro:
 ## This repo is a casual project for testing out stuff and making game sites. It includes a blocker* and a game site, among others. 
-## Thank you for coming this far, and I hope you like my project.
 ### *The blocker just opens a Linewize screen showing the user's input to appear to be blocked. This is for joke purposes only.
+## Thank you for coming this far, and I hope you like my project.
 ## DISCLAIMER: The purpose of this project is just to provide entertainmnt for my friends and is not meant to violate any copyright claims. I am a middle schooler and I don't know how GitHub works so please don't sue me if I make any mistakes and I apologize prior to any potentially unallowed stuff.
 
 # Functionality:
