@@ -1,14 +1,12 @@
-# Supernova FX
+# Introduction
+### This repository is a personal project focused on experimenting with web design and game site development. It includes a spoof blocker and a game launcher, among other features.
 
-# Intro:
-### This repo is a casual project for testing out stuff and making game sites. It includes a blocker* and a game site, among others. 
-### *The blocker just opens a Linewize screen showing the user's input to appear to be blocked. This is for joke purposes only.
+# Features
+### Game Site: Visit supernova-fx.github.io to explore a collection of games. The homepage features a stylized constellation header and buttons that link directly to playable titles. You can also check out the alternate site at bit.ly/supernovagx for more games.
+### Blocker Tool: Navigate to supernova-fx.github.io/blocker.html to try the spoof blocker. Type any URL or name into the input box and click “Launch.” It will display a Linewize-style blocked page using your input. This is purely for entertainment and does not perform any real blocking.
 
-# Functionality:
-### If you want to use the game site, navigate to "https://supernova-fx.github.io" and you will see a colorful abstract constellation header followed by buttons leading to games. Click your preferred game and start playing! Also, I have a Google Site game site too. Go to "https://bit.ly/supernovagx" to access Supernova GX.
-### If you want to use the blocker, navigate to "https://supernova-fx.github.io/blocker.html" and you will come across a text box prompting you to type a URL or name. Once you type your response, press the 'Launch' button. Clicking the 'Enter' key will not work. Once you click 'Launch' and the page loads, you should see a Linewize Blocked page that says Access to [your input] has been blocked. This is it.
+# Disclaimer
+### This project is intended for fun and experimentation. It is not affiliated with or endorsed by any official services. As a student learning how GitHub works, I appreciate your understanding if anything is misconfigured or unintentionally included. Please reach out if something needs to be corrected.
 
-# Other stuff:
-### DISCLAIMER: The purpose of this project is just to provide entertainmnt for my friends and is not meant to violate any copyright claims. I am a middle schooler and I don't know how GitHub works so please don't sue me if I make any mistakes and I apologize prior to any potentially unallowed stuff.
-### Thank you for coming this far, and I hope you like my project.
-hello im here i am also one so yea im cool i like beans and also beans and yeah okay hi yay
+# Thanks
+### Thanks for checking out Supernova FX. I hope you enjoy exploring the tools and ideas here.
