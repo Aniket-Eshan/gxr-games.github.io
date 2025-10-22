@@ -10,13 +10,14 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #000000;
       font-family: 'Orbitron', sans-serif;
       color: #f4c430;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-attachment: fixed;
     }
 
     h1 {
@@ -24,11 +25,12 @@
       font-size: 2em;
     }
 
-    h2 {
+    .toggle {
       font-size: 1.5em;
       color: #00ffff;
       cursor: pointer;
       margin-top: 30px;
+      user-select: none;
     }
 
     .block-section {
@@ -38,10 +40,12 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 30px;
-      background-color: #111;
+      background-color: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(8px);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+      border: 1px solid #00ffff;
     }
 
     .collapsed {
@@ -66,30 +70,32 @@
     button {
       margin-top: 10px;
       padding: 10px 20px;
-      background-color: #00ffff;
-      color: #000;
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
       font-family: 'Orbitron', sans-serif;
-      border: none;
+      border: 1px solid #00ffff;
       border-radius: 5px;
       cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #00ffff;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #00cccc;
+      background-color: rgba(0, 255, 255, 0.4);
     }
   </style>
 </head>
 <body>
   <h1>🔓 Supernova FX Blocker</h1>
 
-  <h2 onclick="toggleSection('basicBlocker')">▶ 🧱 Basic Blocker</h2>
+  <div class="toggle" onclick="toggleSection('basicBlocker', this)">▶ 🧱 Basic Blocker</div>
   <div id="basicBlocker" class="block-section">
     <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
     <button onclick="launchBasic()">Block</button>
   </div>
 
-  <h2 onclick="toggleSection('advancedBlocker')">▶ 🧪 Advanced Blocker</h2>
+  <div class="toggle" onclick="toggleSection('advancedBlocker', this)">▶ 🧪 Advanced Blocker</div>
   <div id="advancedBlocker" class="block-section collapsed">
     <input type="text" id="urlField" placeholder="Enter URL or name to block">
     <input type="text" id="pathField" placeholder="Enter path to block">
@@ -98,16 +104,18 @@
     <button onclick="launchAdvanced()">Block</button>
   </div>
 
-  <h2 onclick="toggleSection('spoofLinks')">▶ 🧨 Spoof Screens</h2>
+  <div class="toggle" onclick="toggleSection('spoofLinks', this)">▶ 🧨 Spoof Screens</div>
   <div id="spoofLinks" class="block-section collapsed">
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
   </div>
 
   <script>
-    function toggleSection(id) {
+    function toggleSection(id, toggleElement) {
       const section = document.getElementById(id);
+      const isCollapsed = section.classList.contains('collapsed');
       section.classList.toggle('collapsed');
+      toggleElement.textContent = (isCollapsed ? '▼' : '▶') + toggleElement.textContent.slice(1);
     }
 
     function launchBasic() {
