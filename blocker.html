@@ -12,12 +12,33 @@
       height: 100%;
       font-family: 'Orbitron', sans-serif;
       color: #f4c430;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: url('https://github.com/Supernova-FX/supernova-fx.github.io/blob/main/design%20render%20GIF%20by%20xponentialdesign.gif?raw=true') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      background-attachment: fixed;
+      padding-bottom: 60px;
     }
 
     h1 {
@@ -87,27 +108,30 @@
   </style>
 </head>
 <body>
-  <h1>🔓 Supernova FX Blocker</h1>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>🔓 Supernova FX Blocker</h1>
 
-  <div class="toggle" id="basicToggle" onclick="toggleSection('basicBlocker', this)">▼ 🧱 Basic Blocker</div>
-  <div id="basicBlocker" class="block-section">
-    <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
-    <button onclick="launchBasic()">Block</button>
-  </div>
+    <div class="toggle" id="basicToggle" onclick="toggleSection('basicBlocker', this)">▼ 🧱 Basic Blocker</div>
+    <div id="basicBlocker" class="block-section">
+      <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
+      <button onclick="launchBasic()">Block</button>
+    </div>
 
-  <div class="toggle" onclick="toggleSection('advancedBlocker', this)">▶ 🧪 Advanced Blocker</div>
-  <div id="advancedBlocker" class="block-section collapsed">
-    <input type="text" id="urlField" placeholder="Enter URL or name to block">
-    <input type="text" id="pathField" placeholder="Enter path to block">
-    <input type="text" id="classField" placeholder="Enter class name">
-    <input type="text" id="userField" placeholder="Enter fake username">
-    <button onclick="launchAdvanced()">Block</button>
-  </div>
+    <div class="toggle" onclick="toggleSection('advancedBlocker', this)">▶ 🧪 Advanced Blocker</div>
+    <div id="advancedBlocker" class="block-section collapsed">
+      <input type="text" id="urlField" placeholder="Enter URL or name to block">
+      <input type="text" id="pathField" placeholder="Enter path to block">
+      <input type="text" id="classField" placeholder="Enter class name">
+      <input type="text" id="userField" placeholder="Enter fake username">
+      <button onclick="launchAdvanced()">Block</button>
+    </div>
 
-  <div class="toggle" onclick="toggleSection('spoofLinks', this)">▶ 🧨 Spoof Screens</div>
-  <div id="spoofLinks" class="block-section collapsed">
-    <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
-    <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
+    <div class="toggle" onclick="toggleSection('spoofLinks', this)">▶ 🧨 Spoof Screens</div>
+    <div id="spoofLinks" class="block-section collapsed">
+      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
+      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
+    </div>
   </div>
 
   <script>
@@ -136,7 +160,6 @@
       window.location.href = spoof;
     }
 
-    // Ensure correct arrow on load
     window.onload = function () {
       const basicSection = document.getElementById('basicBlocker');
       const basicToggle = document.getElementById('basicToggle');
