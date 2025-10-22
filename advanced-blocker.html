@@ -74,10 +74,9 @@
       const username = encodeURIComponent(input);
       const proxy1 = "https://blocked.syd-1.linewize.net/blocked?url=";
       const proxy2 = "&deviceid=PHYS-SMIC-US-0000-0000&user=";
-      const proxy3 = "https://blocked.syd-1.linewize.net/blocked?url=";
-      const proxy4 = "https://blocked.syd-1.linewize.net/blocked?url=";
-      const proxy5 = "https://blocked.syd-1.linewize.net/blocked?url=";
-      window.location.href = proxy1 + url + proxy2 + proxy3 + proxy4 +  + proxy5;
+      const proxy3 = "&path=";
+      const proxy4 = "&method=zoom_match&class_name=";
+      window.location.href = proxy1 + url + proxy2 + username + proxy3 + path + proxy4 + classname;
     }
   </script>
 </body>
