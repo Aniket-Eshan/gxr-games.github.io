@@ -11,3 +11,4 @@
 # Other stuff:
 ### DISCLAIMER: The purpose of this project is just to provide entertainmnt for my friends and is not meant to violate any copyright claims. I am a middle schooler and I don't know how GitHub works so please don't sue me if I make any mistakes and I apologize prior to any potentially unallowed stuff.
 ### Thank you for coming this far, and I hope you like my project.
+hello im here i am also one so yea im cool i like beans and also beans and yeah okay hi yay
