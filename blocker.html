@@ -112,13 +112,13 @@
   <div class="content">
     <h1>🔓 Supernova FX Blocker</h1>
 
-    <div class="toggle" id="basicToggle" onclick="toggleSection('basicBlocker', this)">▼ 🧱 Basic Blocker</div>
+    <div class="toggle" id="basicToggle" onclick="toggleSection('basicBlocker', this)">▼ Basic Blocker</div>
     <div id="basicBlocker" class="block-section">
       <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
       <button onclick="launchBasic()">Block</button>
     </div>
 
-    <div class="toggle" onclick="toggleSection('advancedBlocker', this)">▶ 🧪 Advanced Blocker</div>
+    <div class="toggle" onclick="toggleSection('advancedBlocker', this)">▶ Advanced Blocker</div>
     <div id="advancedBlocker" class="block-section collapsed">
       <input type="text" id="urlField" placeholder="Enter URL or name to block">
       <input type="text" id="pathField" placeholder="Enter path to block">
@@ -127,10 +127,10 @@
       <button onclick="launchAdvanced()">Block</button>
     </div>
 
-    <div class="toggle" onclick="toggleSection('spoofLinks', this)">▶ 🧨 Spoof Screens</div>
+    <div class="toggle" onclick="toggleSection('spoofLinks', this)">▶ Spoof Screens</div>
     <div id="spoofLinks" class="block-section collapsed">
-      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
-      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
+      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">Tab Closed</button>
+      <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">Browsing Disabled</button>
     </div>
   </div>
 
@@ -164,7 +164,7 @@
       const basicSection = document.getElementById('basicBlocker');
       const basicToggle = document.getElementById('basicToggle');
       if (!basicSection.classList.contains('collapsed')) {
-        basicToggle.textContent = '▼ 🧱 Basic Blocker';
+        basicToggle.textContent = '▼ Basic Blocker';
       }
     };
   </script>
