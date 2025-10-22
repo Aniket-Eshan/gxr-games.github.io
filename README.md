@@ -2,7 +2,7 @@
 
 # Intro:
 ### This repo is a casual project for testing out stuff and making game sites. It includes a blocker* and a game site, among others. 
-### The blocker just opens a Linewize screen showing the user's input to appear to be blocked. This is for joke purposes only.
+### *The blocker just opens a Linewize screen showing the user's input to appear to be blocked. This is for joke purposes only.
 
 # Functionality:
 ### If you want to use the game site, navigate to "https://supernova-fx.github.io" and you will see a colorful abstract constellation header followed by buttons leading to games. Click your preferred game and start playing! Also, I have a Google Site game site too. Go to "https://bit.ly/supernovagx" to access Supernova GX.
