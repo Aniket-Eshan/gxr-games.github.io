@@ -37,7 +37,10 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
     }
 
     input[type="text"] {
@@ -45,7 +48,7 @@
       max-width: 600px;
       padding: 12px;
       font-size: 18px;
-      border: none;
+      border: 1px solid #00ffff;
       border-radius: 5px;
       outline: none;
       font-family: 'Orbitron', sans-serif;
@@ -75,13 +78,13 @@
 <body>
   <h1>🔓 Supernova FX Blocker</h1>
 
-  <h2 onclick="toggleSection('basicBlocker')">🧱 Basic Blocker</h2>
+  <h2 onclick="toggleSection('basicBlocker')">▶ 🧱 Basic Blocker</h2>
   <section id="basicBlocker">
     <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
     <button onclick="launchBasic()">Block</button>
   </section>
 
-  <h2 onclick="toggleSection('advancedBlocker')">🧪 Advanced Blocker</h2>
+  <h2 onclick="toggleSection('advancedBlocker')">▶ 🧪 Advanced Blocker</h2>
   <section id="advancedBlocker">
     <input type="text" id="urlField" placeholder="Enter URL or name to block">
     <input type="text" id="pathField" placeholder="Enter path to block">
@@ -107,4 +110,12 @@
     function launchAdvanced() {
       const url = encodeURIComponent(document.getElementById('urlField').value.trim());
       const path = encodeURIComponent(document.getElementById('pathField').value.trim());
-      const
+      const classname = encodeURIComponent(document.getElementById('classField').value.trim());
+      const username = encodeURIComponent(document.getElementById('userField').value.trim());
+
+      const spoof = `https://blocked.syd-1.linewize.net/blocked?url=${url}&deviceid=PHYS-SMIC-US-0000-0000&user=${username}&path=${path}&method=zoom_match&class_name=${classname}`;
+      window.location.href = spoof;
+    }
+  </script>
+</body>
+</html>
