@@ -31,7 +31,7 @@
       margin-top: 30px;
     }
 
-    section {
+    .block-section {
       width: 100%;
       max-width: 700px;
       display: none;
@@ -41,6 +41,7 @@
       background-color: #111;
       padding: 20px;
       border-radius: 10px;
+      box-shadow: 0 0 10px #00ffff;
     }
 
     input[type="text"] {
@@ -75,10 +76,16 @@
     }
 
     .spoof-links {
-      margin-top: 30px;
+      width: 100%;
+      max-width: 700px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffff;
+      margin-bottom: 40px;
     }
   </style>
 </head>
@@ -86,22 +93,22 @@
   <h1>🔓 Supernova FX Blocker</h1>
 
   <h2 onclick="toggleSection('basicBlocker')">▶ 🧱 Basic Blocker</h2>
-  <section id="basicBlocker">
+  <div id="basicBlocker" class="block-section">
     <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
     <button onclick="launchBasic()">Block</button>
-  </section>
+  </div>
 
   <h2 onclick="toggleSection('advancedBlocker')">▶ 🧪 Advanced Blocker</h2>
-  <section id="advancedBlocker">
+  <div id="advancedBlocker" class="block-section">
     <input type="text" id="urlField" placeholder="Enter URL or name to block">
     <input type="text" id="pathField" placeholder="Enter path to block">
     <input type="text" id="classField" placeholder="Enter class name">
     <input type="text" id="userField" placeholder="Enter fake username">
     <button onclick="launchAdvanced()">Block</button>
-  </section>
+  </div>
 
-  <!-- Extra Spoof Links -->
-  <div class="spoof-links">
+  <h2 onclick="toggleSection('spoofLinks')">▶ 🧨 Spoof Screens</h2>
+  <div id="spoofLinks" class="spoof-links">
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
   </div>
