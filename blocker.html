@@ -34,7 +34,7 @@
     .block-section {
       width: 100%;
       max-width: 700px;
-      display: none;
+      display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 30px;
@@ -42,6 +42,10 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
+    }
+
+    .collapsed {
+      display: none;
     }
 
     input[type="text"] {
@@ -74,19 +78,6 @@
     button:hover {
       background-color: #00cccc;
     }
-
-    .spoof-links {
-      width: 100%;
-      max-width: 700px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffff;
-      margin-bottom: 40px;
-    }
   </style>
 </head>
 <body>
@@ -99,7 +90,7 @@
   </div>
 
   <h2 onclick="toggleSection('advancedBlocker')">▶ 🧪 Advanced Blocker</h2>
-  <div id="advancedBlocker" class="block-section">
+  <div id="advancedBlocker" class="block-section collapsed">
     <input type="text" id="urlField" placeholder="Enter URL or name to block">
     <input type="text" id="pathField" placeholder="Enter path to block">
     <input type="text" id="classField" placeholder="Enter class name">
@@ -108,7 +99,7 @@
   </div>
 
   <h2 onclick="toggleSection('spoofLinks')">▶ 🧨 Spoof Screens</h2>
-  <div id="spoofLinks" class="spoof-links">
+  <div id="spoofLinks" class="block-section collapsed">
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/closed_tab'">🗂️ Closed Tab</button>
     <button onclick="window.location.href='https://blocked.syd-1.linewize.net/locked'">🔒 Locked Screen</button>
   </div>
@@ -116,7 +107,7 @@
   <script>
     function toggleSection(id) {
       const section = document.getElementById(id);
-      section.style.display = section.style.display === "flex" ? "none" : "flex";
+      section.classList.toggle('collapsed');
     }
 
     function launchBasic() {
