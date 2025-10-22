@@ -89,7 +89,7 @@
 <body>
   <h1>🔓 Supernova FX Blocker</h1>
 
-  <div class="toggle" onclick="toggleSection('basicBlocker', this)">▶ 🧱 Basic Blocker</div>
+  <div class="toggle" id="basicToggle" onclick="toggleSection('basicBlocker', this)">▼ 🧱 Basic Blocker</div>
   <div id="basicBlocker" class="block-section">
     <input type="text" id="basicUrl" placeholder="Enter URL or name to block">
     <button onclick="launchBasic()">Block</button>
@@ -135,6 +135,15 @@
       const spoof = `https://blocked.syd-1.linewize.net/blocked?url=${url}&deviceid=PHYS-SMIC-US-0000-0000&user=${username}&path=${path}&method=zoom_match&class_name=${classname}`;
       window.location.href = spoof;
     }
+
+    // Ensure correct arrow on load
+    window.onload = function () {
+      const basicSection = document.getElementById('basicBlocker');
+      const basicToggle = document.getElementById('basicToggle');
+      if (!basicSection.classList.contains('collapsed')) {
+        basicToggle.textContent = '▼ 🧱 Basic Blocker';
+      }
+    };
   </script>
 </body>
 </html>
