@@ -6,23 +6,71 @@
   <link rel="icon" href="icons8-star-64.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #000000;
-      color: #f4c430;
-      font-family: 'Orbitron', sans-serif;
-      text-align: center;
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      color: #f4c430;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: url('https://github.com/Supernova-FX/supernova-fx.github.io/blob/main/design%20render%20GIF%20by%20xponentialdesign.gif?raw=true') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 20px;
     }
 
     img.header {
       width: 100%;
       max-height: 300px;
       object-fit: cover;
+      border-bottom: 1px solid #00ffff;
     }
 
     h1 {
       margin-top: 20px;
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .blocker-button {
+      margin: 30px 0;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      border: 1px solid #00ffff;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px #00ffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .blocker-button:hover {
+      background-color: rgba(0, 255, 255, 0.4);
     }
 
     .game-grid {
@@ -36,91 +84,97 @@
 
     button {
       padding: 10px 20px;
-      background: #00ffff;
-      color: #000;
+      background: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
       font-family: 'Orbitron', sans-serif;
-      border: none;
+      border: 1px solid #00ffff;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #00ffff;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #00cccc;
+      background-color: rgba(0, 255, 255, 0.4);
     }
   </style>
 </head>
 <body>
-  <img src="design render GIF by xponentialdesign.gif" alt="Header" class="header">
-  <h1>Supernova FX: Games</h1>
+  <div class="overlay"></div>
+  <div class="content">
+    <img src="design render GIF by xponentialdesign.gif" alt="Header" class="header">
+    <h1>Supernova FX: Games</h1>
+    <button class="blocker-button" onclick="window.location.href='blocker.html'">Go to Blocker</button>
 
-  <div class="game-grid">
-    <button onclick="launchStealth('https://www.friv.cm/1v1-lol/fullscreen/')">⚔️ 1v1.LOL</button>
-    <button onclick="launchStealth('https://3kh0isgood.github.io/projects.html')">🌐 3kh0</button>
-    <button onclick="launchStealth('https://agar.live')">🦠 Agar Live</button>
-    <button onclick="launchStealth('https://www.friv.cm/among-us/fullscreen/')">👽 Among Us</button>
-    <button onclick="launchStealth('https://www.friv.cm/bacon-may-die/fullscreen/')">🥓 Bacon May Die</button>
-    <button onclick="launchStealth('https://bigshotboxing.gitlab.io/')">🥊 Big Shot Boxing</button>
-    <button onclick="launchStealth('https://vocalnutria9174.github.io/deltarune_web/')">❤️ Deltarune</button>
-    <button onclick="launchStealth('https://www.drivemad.com/index.html/')">🚗 Drive Mad</button>
-    <button onclick="launchStealth('https://www.friv.cm/duck-life/fullscreen/')">🦆 Duck Life</button>
-    <button onclick="launchStealth('https://www.friv.cm/duck-life-2/fullscreen/')">🦆 Duck Life 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/duck-life-3-evolution/fullscreen/')">🦆 Duck Life 3</button>
-    <button onclick="launchStealth('https://www.friv.cm/duck-life-4/fullscreen/')">🦆 Duck Life 4</button>
-    <button onclick="launchStealth('https://geometrydash-lite.io/')">📐 Geometry Dash</button>
-    <button onclick="launchStealth('https://www.friv.cm/helix-jump/fullscreen/')">🌀 Helix Jump</button>
-    <button onclick="launchStealth('https://www.friv.cm/idle-breakout/fullscreen/')">🧱 Idle Breakout</button>
-    <button onclick="launchStealth('https://www.friv.cm/madalin-stunt-cars-2/fullscreen/')">🚘 Madalin Stunt Cars 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/merge-cakes/fullscreen/')">🍰 Merge Cakes</button>
-    <button onclick="launchStealth('https://www.friv.cm/merge-harvest/fullscreen/')">🌾 Merge Harvest</button>
-    <button onclick="launchStealth('https://www.friv.cm/merge-round-racers/fullscreen/')">🏁 Merge Round Racers</button>
-    <button onclick="launchStealth('https://www.friv.cm/minecraft-1-12-2/fullscreen/')">🧱 Minecraft 1.12.2</button>
-    <button onclick="launchStealth('https://www.friv.cm/minecraft-1-5-2/fullscreen/')">🧱 Minecraft 1.5.2</button>
-    <button onclick="launchStealth('https://www.friv.cm/monkey-mart/fullscreen/')">🛒 Monkey Mart</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m/fullscreen/')">🏍️ Moto X3M</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m-2/fullscreen/')">🏍️ Moto X3M 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m-3/fullscreen/')">🏍️ Moto X3M 3</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m-pool-party/fullscreen/')">🏖️ Moto X3M Pool Party</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m-spooky/fullscreen/')">🎃 Moto X3M Spooky</button>
-    <button onclick="launchStealth('https://www.friv.cm/moto-x3m-winter/fullscreen/')">❄️ Moto X3M Winter</button>
-    <button onclick="launchStealth('https://mytcgcollection.com/')">🃏 My TCG Collection</button>
-    <button onclick="launchStealth('https://www.friv.cm/only-up/fullscreen/')">⛰️ Only Up</button>
-    <button onclick="launchStealth('https://www.friv.cm/paper-io/fullscreen/')">📄 Paper.io</button>
-    <button onclick="launchStealth('https://www.friv.cm/paper-io-2/fullscreen/')">📄 Paper.io 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/paper-io-3/fullscreen/')">📄 Paper.io 3</button>
-    <button onclick="launchStealth('https://www.friv.cm/parking-fury/fullscreen/')">🅿️ Parking Fury</button>
-    <button onclick="launchStealth('https://www.friv.cm/parking-fury-2/fullscreen/')">🅿️ Parking Fury 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/parking-fury-3/fullscreen/')">🅿️ Parking Fury 3</button>
-    <button onclick="launchStealth('https://www.friv.cm/ragdoll-hit/fullscreen/')">🧍‍♂️ Ragdoll Hit</button>
-    <button onclick="launchStealth('https://www.friv.cm/retro-bowl/fullscreen/')">🏈 Retro Bowl</button>
-    <button onclick="launchStealth('https://www.friv.cm/retro-bowl-college/fullscreen/')">🎓 Retro Bowl College</button>
-    <button onclick="launchStealth('https://www.friv.cm/rocket-soccer-derby/fullscreen/')">🚀 Rocket Soccer Derby</button>
-    <button onclick="launchStealth('https://www.friv.cm/rooftop-snipers/fullscreen/')">🔫 Rooftop Snipers</button>
-    <button onclick="launchStealth('https://www.friv.cm/rooftop-snipers-2/fullscreen/')">🔫 Rooftop Snipers 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/run/fullscreen/')">🏃 Run</button>
-    <button onclick="launchStealth('https://www.friv.cm/sandtris/fullscreen/')">🪱 Sandtris</button>
-    <button onclick="launchStealth('https://www.friv.cm/shell-shockers/fullscreen/')">💣 Shell Shockers</button>
-    <button onclick="launchStealth('https://www.friv.cm/slope/fullscreen/')">🌌 Slope</button>
-    <button onclick="launchStealth('https://www.friv.cm/smash-karts/fullscreen/')">🏎️ Smash Karts</button>
-    <button onclick="launchStealth('https://www.friv.cm/snake-io/fullscreen/')">🐍 Snake.io</button>
-    <button onclick="launchStealth('https://www.friv.cm/snow-rider/fullscreen/')">⛷️ Snow Rider</button>
-    <button onclick="launchStealth('https://www.friv.cm/stack/fullscreen/')">🧩 Stack</button>
-    <button onclick="launchStealth('https://www.friv.cm/stack-ball/fullscreen/')">🧱 Stack Ball</button>
-    <button onclick="launchStealth('https://banana-livid.vercel.app/lbannana-assets/html/stickman-hook/index.html')">🪝 Stickman Hook</button>
-    <button onclick="launchStealth('https://www.friv.cm/temple-run-2/fullscreen/')">🏃 Temple Run 2</button>
-    <button onclick="launchStealth('https://www.friv.cm/tunnel-rush/fullscreen/')">🌪️ Tunnel Rush</button>
-    <button onclick="launchStealth('https://www.twoplayergames.org/')">🌐 Two Player Games</button>
-    <button onclick="launchStealth('https://www.friv.cm/vex-3/fullscreen/')">🧗 Vex 3</button>
-    <button onclick="launchStealth('https://www.friv.cm/vex-4/fullscreen/')">🧗 Vex 4</button>
-    <button onclick="launchStealth('https://www.friv.cm/vex-5/fullscreen/')">🧗 Vex 5</button>
-    <button onclick="launchStealth('https://www.friv.cm/vex-6/fullscreen/')">🧗 Vex 6</button>
-    <button onclick="launchStealth('https://www.friv.cm/vex-7/fullscreen/')">🧗 Vex 7</button>
-    <button onclick="launchStealth('https://wordle-vanilla.vercel.app/')">🔤 Wordle</button>
-    <button onclick="launchStealth('https://www.friv.cm/zombs-royale/fullscreen/')">🧟 Zombs Royale</button>
+    <div class="game-grid">
+      <button onclick="launchStealth('https://www.friv.cm/1v1-lol/fullscreen/')">⚔️ 1v1.LOL</button>
+      <button onclick="launchStealth('https://3kh0isgood.github.io/projects.html')">🌐 3kh0</button>
+      <button onclick="launchStealth('https://agar.live')">🦠 Agar Live</button>
+      <button onclick="launchStealth('https://www.friv.cm/among-us/fullscreen/')">👽 Among Us</button>
+      <button onclick="launchStealth('https://www.friv.cm/bacon-may-die/fullscreen/')">🥓 Bacon May Die</button>
+      <button onclick="launchStealth('https://bigshotboxing.gitlab.io/')">🥊 Big Shot Boxing</button>
+      <button onclick="launchStealth('https://vocalnutria9174.github.io/deltarune_web/')">❤️ Deltarune</button>
+      <button onclick="launchStealth('https://www.drivemad.com/index.html/')">🚗 Drive Mad</button>
+      <button onclick="launchStealth('https://www.friv.cm/duck-life/fullscreen/')">🦆 Duck Life</button>
+      <button onclick="launchStealth('https://www.friv.cm/duck-life-2/fullscreen/')">🦆 Duck Life 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/duck-life-3-evolution/fullscreen/')">🦆 Duck Life 3</button>
+      <button onclick="launchStealth('https://www.friv.cm/duck-life-4/fullscreen/')">🦆 Duck Life 4</button>
+      <button onclick="launchStealth('https://geometrydash-lite.io/')">📐 Geometry Dash</button>
+      <button onclick="launchStealth('https://www.friv.cm/helix-jump/fullscreen/')">🌀 Helix Jump</button>
+      <button onclick="launchStealth('https://www.friv.cm/idle-breakout/fullscreen/')">🧱 Idle Breakout</button>
+      <button onclick="launchStealth('https://www.friv.cm/madalin-stunt-cars-2/fullscreen/')">🚘 Madalin Stunt Cars 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/merge-cakes/fullscreen/')">🍰 Merge Cakes</button>
+      <button onclick="launchStealth('https://www.friv.cm/merge-harvest/fullscreen/')">🌾 Merge Harvest</button>
+      <button onclick="launchStealth('https://www.friv.cm/merge-round-racers/fullscreen/')">🏁 Merge Round Racers</button>
+      <button onclick="launchStealth('https://www.friv.cm/minecraft-1-12-2/fullscreen/')">🧱 Minecraft 1.12.2</button>
+      <button onclick="launchStealth('https://www.friv.cm/minecraft-1-5-2/fullscreen/')">🧱 Minecraft 1.5.2</button>
+      <button onclick="launchStealth('https://www.friv.cm/monkey-mart/fullscreen/')">🛒 Monkey Mart</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m/fullscreen/')">🏍️ Moto X3M</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m-2/fullscreen/')">🏍️ Moto X3M 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m-3/fullscreen/')">🏍️ Moto X3M 3</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m-pool-party/fullscreen/')">🏖️ Moto X3M Pool Party</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m-spooky/fullscreen/')">🎃 Moto X3M Spooky</button>
+      <button onclick="launchStealth('https://www.friv.cm/moto-x3m-winter/fullscreen/')">❄️ Moto X3M Winter</button>
+      <button onclick="launchStealth('https://mytcgcollection.com/')">🃏 My TCG Collection</button>
+      <button onclick="launchStealth('https://www.friv.cm/only-up/fullscreen/')">⛰️ Only Up</button>
+      <button onclick="launchStealth('https://www.friv.cm/paper-io/fullscreen/')">📄 Paper.io</button>
+      <button onclick="launchStealth('https://www.friv.cm/paper-io-2/fullscreen/')">📄 Paper.io 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/paper-io-3/fullscreen/')">📄 Paper.io 3</button>
+      <button onclick="launchStealth('https://www.friv.cm/parking-fury/fullscreen/')">🅿️ Parking Fury</button>
+      <button onclick="launchStealth('https://www.friv.cm/parking-fury-2/fullscreen/')">🅿️ Parking Fury 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/parking-fury-3/fullscreen/')">🅿️ Parking Fury 3</button>
+      <button onclick="launchStealth('https://www.friv.cm/ragdoll-hit/fullscreen/')">🧍‍♂️ Ragdoll Hit</button>
+      <button onclick="launchStealth('https://www.friv.cm/retro-bowl/fullscreen/')">🏈 Retro Bowl</button>
+      <button onclick="launchStealth('https://www.friv.cm/retro-bowl-college/fullscreen/')">🎓 Retro Bowl College</button>
+      <button onclick="launchStealth('https://www.friv.cm/rocket-soccer-derby/fullscreen/')">🚀 Rocket Soccer Derby</button>
+      <button onclick="launchStealth('https://www.friv.cm/rooftop-snipers/fullscreen/')">🔫 Rooftop Snipers</button>
+      <button onclick="launchStealth('https://www.friv.cm/rooftop-snipers-2/fullscreen/')">🔫 Rooftop Snipers 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/run/fullscreen/')">🏃 Run</button>
+      <button onclick="launchStealth('https://www.friv.cm/sandtris/fullscreen/')">🪱 Sandtris</button>
+      <button onclick="launchStealth('https://www.friv.cm/shell-shockers/fullscreen/')">💣 Shell Shockers</button>
+      <button onclick="launchStealth('https://www.friv.cm/slope/fullscreen/')">🌌 Slope</button>
+      <button onclick="launchStealth('https://www.friv.cm/smash-karts/fullscreen/')">🏎️ Smash Karts</button>
+      <button onclick="launchStealth('https://www.friv.cm/snake-io/fullscreen/')">🐍 Snake.io</button>
+      <button onclick="launchStealth('https://www.friv.cm/snow-rider/fullscreen/')">⛷️ Snow Rider</button>
+      <button onclick="launchStealth('https://www.friv.cm/stack/fullscreen/')">🧩 Stack</button>
+      <button onclick="launchStealth('https://www.friv.cm/stack-ball/fullscreen/')">🧱 Stack Ball</button>
+      <button onclick="launchStealth('https://banana-livid.vercel.app/lbannana-assets/html/stickman-hook/index.html')">🪝 Stickman Hook</button>
+      <button onclick="launchStealth('https://www.friv.cm/temple-run-2/fullscreen/')">🏃 Temple Run 2</button>
+      <button onclick="launchStealth('https://www.friv.cm/tunnel-rush/fullscreen/')">🌪️ Tunnel Rush</button>
+      <button onclick="launchStealth('https://www.twoplayergames.org/')">🌐 Two Player Games</button>
+      <button onclick="launchStealth('https://www.friv.cm/vex-3/fullscreen/')">🧗 Vex 3</button>
+      <button onclick="launchStealth('https://www.friv.cm/vex-4/fullscreen/')">🧗 Vex 4</button>
+      <button onclick="launchStealth('https://www.friv.cm/vex-5/fullscreen/')">🧗 Vex 5</button>
+      <button onclick="launchStealth('https://www.friv.cm/vex-6/fullscreen/')">🧗 Vex 6</button>
+      <button onclick="launchStealth('https://www.friv.cm/vex-7/fullscreen/')">🧗 Vex 7</button>
+      <button onclick="launchStealth('https://wordle-vanilla.vercel.app/')">🔤 Wordle</button>
+      <button onclick="launchStealth('https://www.friv.cm/zombs-royale/fullscreen/')">🧟 Zombs Royale</button>
+    </div>
+  </div>
 
-    <script>
-                                   
+  <script>
     function launchStealth(url) {
       const win = window.open('about:blank', '_blank');
       const doc = win.document;
