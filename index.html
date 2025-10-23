@@ -99,13 +99,35 @@
     button:hover {
       background-color: rgba(0, 255, 255, 0.4);
     }
+    .gx-button {
+      margin: 10px 0;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f4c430;
+      font-family: 'Orbitron', sans-serif;
+      border: 1px solid #f4c430;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px #f4c430;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gx-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 25px #f4c430;
+    }
+
   </style>
 </head>
 <body>
   <div class="overlay"></div>
   <div class="content">
+    <p>Only one star shines the brightest...</p>
     <h1>Supernova FX: Games</h1>
-    <button class="blocker-button" onclick="window.location.href='blocker.html'">Go to Blocker</button>
+    <button class="gx-button" onclick="window.location.href='https://bit.ly/supernovagx'">Visit Supernova GX</button>
+    <button class="blocker-button" onclick="window.location.href='blocker.html'">Or go to the blocker</button>
 
     <div class="game-grid">
       <button onclick="launchStealth('https://www.friv.cm/1v1-lol/fullscreen/')">⚔️ 1v1.LOL</button>
