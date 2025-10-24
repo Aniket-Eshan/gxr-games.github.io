@@ -1,4 +1,4 @@
-/* Global Styles */
+/* === Base Reset & Typography === */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,14 +8,13 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Background Styling */
+/* === Background & Overlay === */
 body {
-  background: url('design render GIF by xponentialdesign.gif') no-repeat center center fixed;
+  background: url('https://github.com/Supernova-FX/supernova-fx.github.io/blob/main/design%20render%20GIF%20by%20xponentialdesign.gif?raw=true') no-repeat center center fixed;
   background-size: cover;
   position: relative;
 }
 
-/* Overlay Blur */
 .overlay {
   position: fixed;
   top: 0;
@@ -27,32 +26,16 @@ body {
   z-index: 0;
 }
 
-/* Main Content Container */
+/* === Layout Containers === */
 .content {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px 20px;
+  padding: 40px 20px 60px;
 }
 
-/* Header Image */
-img.header {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-bottom: 1px solid #00ffff;
-}
-
-/* Title */
-h1 {
-  margin-top: 20px;
-  font-size: 2.5em;
-  text-align: center;
-}
-
-/* Game Grid */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -62,18 +45,53 @@ h1 {
   margin: 40px auto;
 }
 
-/* Standard Button */
+.block-section {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffff;
+  border: 1px solid #00ffff;
+}
+
+.collapsed {
+  display: none;
+}
+
+/* === Typography === */
+h1 {
+  margin: 40px 0 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.toggle {
+  font-size: 1.5em;
+  color: #00ffff;
+  cursor: pointer;
+  margin-top: 30px;
+  user-select: none;
+}
+
+/* === Buttons === */
 button {
+  margin-top: 10px;
   padding: 10px 20px;
-  background: rgba(0, 255, 255, 0.2);
+  background-color: rgba(0, 255, 255, 0.2);
   color: #00ffff;
   font-family: 'Orbitron', sans-serif;
   border: 1px solid #00ffff;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   backdrop-filter: blur(6px);
   box-shadow: 0 0 10px #00ffff;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
@@ -81,18 +99,15 @@ button:hover {
   background-color: rgba(0, 255, 255, 0.4);
 }
 
-/* GX Button Variant */
+/* === GX Button Variant === */
 .gx-button {
   margin: 10px 0;
   padding: 12px 30px;
   font-size: 1.1em;
   background-color: rgba(255, 255, 255, 0.1);
   color: #f4c430;
-  font-family: 'Orbitron', sans-serif;
   border: 1px solid #f4c430;
   border-radius: 8px;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
   box-shadow: 0 0 15px #f4c430;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -100,4 +115,20 @@ button:hover {
 .gx-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px #f4c430;
+}
+
+/* === Inputs === */
+input[type="text"] {
+  width: 80%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #00ffff;
+  border-radius: 5px;
+  outline: none;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #111;
+  color: #00ffff;
+  text-align: center;
+  margin-bottom: 10px;
 }
