@@ -54,25 +54,6 @@
       text-align: center;
     }
 
-    .blocker-button {
-      margin: 30px 0;
-      padding: 12px 30px;
-      font-size: 1.1em;
-      background-color: rgba(0, 255, 255, 0.2);
-      color: #00ffff;
-      font-family: 'Orbitron', sans-serif;
-      border: 1px solid #00ffff;
-      border-radius: 8px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 15px #00ffff;
-      transition: background-color 0.3s ease;
-    }
-
-    .blocker-button:hover {
-      background-color: rgba(0, 255, 255, 0.4);
-    }
-
     .game-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -80,7 +61,6 @@
       width: 90%;
       max-width: 1200px;
       margin: 40px auto;
-      border-radius: 25px;
     }
 
     button {
@@ -128,7 +108,7 @@
     <p>Only one star shines the brightest...</p>
     <h1>Supernova FX: Games</h1>
     <button class="gx-button" onclick="window.location.href='https://bit.ly/supernovagx'">Visit Supernova GX</button>
-    <button class="blocker-button" onclick="window.location.href='blocker.html'">Or go to the blocker</button>
+    <button class="gx-button" onclick="window.location.href='blocker.html'">Or go to the blocker</button>
 
     <div class="game-grid">
       <button onclick="launchStealth('https://3kh0isgood.github.io/projects/1/index.html')">🧩 1</button>
