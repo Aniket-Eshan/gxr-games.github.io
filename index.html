@@ -5,12 +5,12 @@
     window.addEventListener("DOMContentLoaded", () => {
       const savedTitle = localStorage.getItem("cloakTitle");
       const savedIcon = localStorage.getItem("cloakIcon");
-  
+
       if (savedTitle) document.title = savedTitle;
-  
+
       if (savedIcon) {
         let iconLink = document.querySelector("link[rel~='icon']");
-          if (!iconLink) {
+        if (!iconLink) {
           iconLink = document.createElement("link");
           iconLink.rel = "icon";
           document.head.appendChild(iconLink);
@@ -24,15 +24,51 @@
   <link rel="icon" href="icons8-star-64.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    h1, p, .toggle {
+      color: #f4c430;
+    }
+
+    .gx-button {
+      margin: 10px 0;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f4c430;
+      font-family: 'Orbitron', sans-serif;
+      border: 1px solid #f4c430;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px #f4c430;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gx-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 25px #f4c430;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+  </style>
 </head>
 <body>
   <div class="overlay"></div>
   <div class="content">
     <p>Only one star shines the brightest...</p>
     <h1>Supernova FX: Games</h1>
+
     <div style="display: flex; gap: 12px; justify-content: center;">
       <button class="gx-button" onclick="window.location.href='https://bit.ly/supernovagx'">Visit Supernova GX</button>
-      <button class="gx-button" onclick="window.location.href='blocker.html'">Or go to the blocker</button>
+      <button class="gx-button" onclick="window.location.href='blocker.html'">Go to the Blocker</button>
+      <button class="gx-button" onclick="window.location.href='settings.html'">⚙️ Settings</button>
     </div>
 
     <div class="game-grid">
