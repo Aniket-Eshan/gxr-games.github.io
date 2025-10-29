@@ -10,7 +10,7 @@
 <body>
   <div class="overlay"></div>
   <div class="content">
-    <h1>⚙️ Launcher Settings</h1>
+    <h1>⚙️ Supernova FX Settings</h1>
 
     <div class="block-section">
       <h2>🎭 Cloak Settings</h2>
@@ -27,10 +27,10 @@
 
     <div class="block-section">
       <h2>🧪 Future Settings</h2>
-      <p>Coming soon: Theme toggle, launcher modes, panic hotkeys, and more.</p>
+      <p>Coming soon: Theme toggle, games section modes, panic hotkeys, and more.</p>
     </div>
 
-    <div class="toggle" onclick="window.location.href='index.html'">← Back to Launcher</div>
+    <div class="toggle" onclick="window.location.href='index.html'">← Back to Games Section</div>
   </div>
 
   <script>
@@ -38,15 +38,31 @@
       const title = document.getElementById("cloakTitle").value;
       const icon = document.getElementById("cloakIcon").value;
 
-      if (title) localStorage.setItem("cloakTitle", title);
-      if (icon) localStorage.setItem("cloakIcon", icon);
+      if (title) {
+        localStorage.setItem("cloakTitle", title);
+        document.title = title;
+      }
 
-      alert("Cloak applied! Reload launcher or blocker to see changes.");
+      if (icon) {
+        localStorage.setItem("cloakIcon", icon);
+        let iconLink = document.querySelector("link[rel~='icon']");
+        if (!iconLink) {
+          iconLink = document.createElement("link");
+          iconLink.rel = "icon";
+          document.head.appendChild(iconLink);
+        }
+        iconLink.href = icon;
+      }
+
+      alert("Cloak applied instantly!");
     }
 
     function resetCloak() {
       localStorage.removeItem("cloakTitle");
       localStorage.removeItem("cloakIcon");
+      document.title = "Supernova FX — Settings";
+      const iconLink = document.querySelector("link[rel~='icon']");
+      if (iconLink) iconLink.href = "icons8-star-64.png";
       alert("Cloak reset to default.");
     }
   </script>
