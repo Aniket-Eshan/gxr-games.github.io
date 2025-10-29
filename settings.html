@@ -1,39 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTitle = localStorage.getItem("cloakTitle");
+      const savedIcon = localStorage.getItem("cloakIcon");
+
+      if (savedTitle) document.title = savedTitle;
+
+      if (savedIcon) {
+        let iconLink = document.querySelector("link[rel~='icon']");
+        if (!iconLink) {
+          iconLink = document.createElement("link");
+          iconLink.rel = "icon";
+          document.head.appendChild(iconLink);
+        }
+        iconLink.href = savedIcon;
+      }
+    });
+  </script>
   <meta charset="UTF-8">
   <title>Supernova FX — Settings</title>
   <link rel="icon" href="icons8-star-64.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    h1, h2, label, .toggle {
+      color: #f4c430;
+    }
+
+    .block-section {
+      background-color: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .collapsed {
+      display: none;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      max-width: 600px;
+      padding: 12px;
+      font-size: 18px;
+      border: 1px solid #00ffff;
+      border-radius: 5px;
+      outline: none;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #111;
+      color: #00ffff;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      border: 1px solid #00ffff;
+      border-radius: 5px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #00ffff;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgba(0, 255, 255, 0.4);
+    }
+
+    .toggle {
+      font-size: 1.2em;
+      margin-top: 20px;
+      cursor: pointer;
+      user-select: none;
+      color: #f4c430;
+    }
+  </style>
 </head>
 <body>
   <div class="overlay"></div>
   <div class="content">
     <h1>⚙️ Supernova FX Settings</h1>
 
-    <div class="block-section">
-      <h2>🎭 Cloak Settings</h2>
+    <div class="toggle" onclick="toggleSection('basicCloak', this)">▼ Basic Cloaks</div>
+    <div id="basicCloak" class="block-section">
+      <p>Select a preset cloak:</p>
+      <select id="presetCloak">
+        <option value="">-- Choose a cloak --</option>
+        <option value="Google Docs|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x32.png">Google Docs</option>
+        <option value="Google Sheets|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png">Google Sheets</option>
+        <option value="Google Slides|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_presentation_x32.png">Google Slides</option>
+        <option value="Google Classroom|https://classroom.google.com/favicon.ico">Google Classroom</option>
+        <option value="Canvas|https://canvas.instructure.com/favicon.ico">Canvas</option>
+        <option value="ClassLink|https://launchpad.classlink.com/favicon.ico">ClassLink</option>
+        <option value="IXL|https://www.ixl.com/favicon.ico">IXL</option>
+        <option value="i-Ready|https://cdn.i-ready.com/favicon.ico">i-Ready</option>
+        <option value="Big Ideas Math|https://www.bigideasmath.com/favicon.ico">Big Ideas Math</option>
+        <option value="Microsoft Word|https://www.office.com/favicon.ico">Microsoft Word</option>
+        <option value="Microsoft Excel|https://www.office.com/favicon.ico">Microsoft Excel</option>
+        <option value="Microsoft PowerPoint|https://www.office.com/favicon.ico">Microsoft PowerPoint</option>
+        <option value="Microsoft Office|https://www.office.com/favicon.ico">Microsoft Office</option>
+      </select>
+      <button onclick="applyPreset()">Apply Preset</button>
+    </div>
 
-      <label for="cloakTitle">Page Title:</label>
+    <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
+    <div id="advancedCloak" class="block-section collapsed">
+      <label for="cloakTitle">Custom Page Title:</label>
       <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
 
-      <label for="cloakIcon">Icon URL:</label>
+      <label for="cloakIcon">Custom Icon URL:</label>
       <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
 
-      <button onclick="applyCloak()">Apply Cloak</button>
+      <button onclick="applyCloak()">Apply Custom Cloak</button>
       <button onclick="resetCloak()">Reset to Default</button>
     </div>
 
     <div class="block-section">
       <h2>🧪 Future Settings</h2>
-      <p>Coming soon: Theme toggle, games section modes, panic hotkeys, and more.</p>
+      <p>Coming soon: Theme toggle, stealth modes, panic hotkeys, and more.</p>
     </div>
 
     <div class="toggle" onclick="window.location.href='index.html'">← Back to Games Section</div>
   </div>
 
   <script>
+    function toggleSection(id, toggleElement) {
+      const section = document.getElementById(id);
+      const isCollapsed = section.classList.contains('collapsed');
+      section.classList.toggle('collapsed');
+      toggleElement.textContent = (isCollapsed ? '▼' : '▶') + toggleElement.textContent.slice(1);
+    }
+
+    function applyPreset() {
+      const value = document.getElementById("presetCloak").value;
+      if (!value) return alert("Please select a cloak.");
+      const [title, icon] = value.split("|");
+      localStorage.setItem("cloakTitle", title);
+      localStorage.setItem("cloakIcon", icon);
+      document.title = title;
+      const iconLink = document.querySelector("link[rel~='icon']");
+      if (iconLink) iconLink.href = icon;
+      alert("Preset cloak applied!");
+    }
+
     function applyCloak() {
       const title = document.getElementById("cloakTitle").value;
       const icon = document.getElementById("cloakIcon").value;
@@ -54,7 +177,7 @@
         iconLink.href = icon;
       }
 
-      alert("Cloak applied instantly!");
+      alert("Custom cloak applied!");
     }
 
     function resetCloak() {
