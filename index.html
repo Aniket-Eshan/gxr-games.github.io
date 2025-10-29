@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTitle = localStorage.getItem("cloakTitle");
+      const savedIcon = localStorage.getItem("cloakIcon");
+  
+      if (savedTitle) document.title = savedTitle;
+  
+      if (savedIcon) {
+        let iconLink = document.querySelector("link[rel~='icon']");
+          if (!iconLink) {
+          iconLink = document.createElement("link");
+          iconLink.rel = "icon";
+          document.head.appendChild(iconLink);
+        }
+        iconLink.href = savedIcon;
+      }
+    });
+  </script>
   <meta charset="UTF-8">
   <title>Supernova FX</title>
   <link rel="icon" href="icons8-star-64.png" type="image/x-icon">
