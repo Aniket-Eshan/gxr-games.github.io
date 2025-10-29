@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Supernova FX — Settings</title>
+  <link rel="icon" href="icons8-star-64.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>⚙️ Launcher Settings</h1>
+
+    <div class="block-section">
+      <h2>🎭 Cloak Settings</h2>
+
+      <label for="cloakTitle">Page Title:</label>
+      <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
+
+      <label for="cloakIcon">Icon URL:</label>
+      <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
+
+      <button onclick="applyCloak()">Apply Cloak</button>
+      <button onclick="resetCloak()">Reset to Default</button>
+    </div>
+
+    <div class="block-section">
+      <h2>🧪 Future Settings</h2>
+      <p>Coming soon: Theme toggle, launcher modes, panic hotkeys, and more.</p>
+    </div>
+
+    <div class="toggle" onclick="window.location.href='index.html'">← Back to Launcher</div>
+  </div>
+
+  <script>
+    function applyCloak() {
+      const title = document.getElementById("cloakTitle").value;
+      const icon = document.getElementById("cloakIcon").value;
+
+      if (title) localStorage.setItem("cloakTitle", title);
+      if (icon) localStorage.setItem("cloakIcon", icon);
+
+      alert("Cloak applied! Reload launcher or blocker to see changes.");
+    }
+
+    function resetCloak() {
+      localStorage.removeItem("cloakTitle");
+      localStorage.removeItem("cloakIcon");
+      alert("Cloak reset to default.");
+    }
+  </script>
+</body>
+</html>
