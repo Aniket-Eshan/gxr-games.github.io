@@ -88,6 +88,15 @@
       user-select: none;
       color: #f4c430;
     }
+
+    #iconPreview {
+      margin-top: 10px;
+      width: 32px;
+      height: 32px;
+      display: none;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #00ffff;
+    }
   </style>
 </head>
 <body>
@@ -98,7 +107,7 @@
     <div class="toggle" onclick="toggleSection('basicCloak', this)">▼ Basic Cloaks</div>
     <div id="basicCloak" class="block-section">
       <p>Select a preset cloak:</p>
-      <select id="presetCloak">
+      <select id="presetCloak" onchange="previewIcon()">
         <option value="">-- Choose a cloak --</option>
         <option value="Amplify|https://www.amplify.com/favicon.ico">Amplify</option>
         <option value="Big Ideas Math|https://www.bigideasmath.com/favicon.ico">Big Ideas Math</option>
@@ -118,9 +127,11 @@
         <option value="Microsoft Word|https://word.officeapps.live.com/favicon.ico">Microsoft Word</option>
         <option value="Wikipedia|https://en.wikipedia.org/favicon.ico">Wikipedia</option>
       </select>
+
+      <img id="iconPreview" src="" alt="Icon Preview">
+
       <button onclick="applyPreset()">Apply Preset</button>
     </div>
-
     <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
     <div id="advancedCloak" class="block-section collapsed">
       <label for="cloakTitle">Custom Page Title:</label>
@@ -147,6 +158,18 @@
       const isCollapsed = section.classList.contains('collapsed');
       section.classList.toggle('collapsed');
       toggleElement.textContent = (isCollapsed ? '▼' : '▶') + toggleElement.textContent.slice(1);
+    }
+
+    function previewIcon() {
+      const value = document.getElementById("presetCloak").value;
+      const preview = document.getElementById("iconPreview");
+      if (!value) {
+        preview.style.display = "none";
+        return;
+      }
+      const [_, icon] = value.split("|");
+      preview.src = icon;
+      preview.style.display = "inline-block";
     }
 
     function applyPreset() {
@@ -190,6 +213,7 @@
       document.title = "Supernova FX — Settings";
       const iconLink = document.querySelector("link[rel~='icon']");
       if (iconLink) iconLink.href = "icons8-star-64.png";
+      document.getElementById("iconPreview").style.display = "none";
       alert("Cloak reset to default.");
     }
   </script>
