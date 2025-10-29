@@ -24,6 +24,37 @@
       }
     });
   </script>
+  <style>
+    h1, h2, label, .toggle {
+      color: #f4c430;
+    }
+
+    .block-section {
+      background-color: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    input[type="text"] {
+      background-color: #111;
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    button {
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 10px #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    button:hover {
+      background-color: rgba(0, 255, 255, 0.4);
+    }
+  </style>
 </head>
 <body>
   <div class="overlay"></div>
@@ -52,7 +83,7 @@
     </div>
 
     <div class="toggle" onclick="window.location.href='settings.html'">⚙️ Settings</div>
-    <div class="toggle" onclick="window.location.href='index.html'">← Back to the games section</div>
+    <div class="toggle" onclick="window.location.href='index.html'">← Back to Games Section</div>
   </div>
 
   <script>
