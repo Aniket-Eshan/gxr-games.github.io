@@ -103,24 +103,17 @@
       box-shadow: 0 0 8px #00ffff;
     }
 
-    .flex-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 12px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .flex-row > div {
-      flex: 1 1 45%;
+    .flex-column {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 12px;
     }
 
-    .flex-row label {
+    .flex-column label {
+      margin-top: 12px;
       margin-bottom: 6px;
     }
   </style>
@@ -155,23 +148,20 @@
 
       <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
       <div id="advancedCloak" class="collapsed">
-        <div class="flex-row">
-          <div>
-            <label for="cloakTitle">Custom Page Title:</label>
-            <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
-          </div>
-          <div>
-            <label for="cloakIcon">Custom Icon</label>
-            <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
-          </div>
-        </div>
+        <div class="flex-column">
+          <label for="cloakTitle">Custom Page Title:</label>
+          <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
 
-        <input type="text" id="cloakURL" placeholder="e.g. https://example.com/favicon.ico">
+          <label for="cloakIcon">Custom Icon:</label>
+          <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
+
+          <label for="cloakURL">URL:</label>
+          <input type="text" id="cloakURL" placeholder="e.g. https://example.com/favicon.ico">
+        </div>
 
         <button onclick="applyCloak()">Apply Custom Cloak</button>
         <button onclick="resetCloak()">Reset to Default</button>
       </div>
-    </div>
 
     <div class="block-section">
       <button onclick="launchStealth()">Stealth Mode (about:blank)</button>
