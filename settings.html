@@ -25,6 +25,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      text-align: center;
+    }
+
     h1, h2, label, .toggle {
       color: #f4c430;
     }
@@ -36,7 +40,7 @@
       box-shadow: 0 0 15px #00ffff;
       padding: 20px;
       border-radius: 10px;
-      margin-bottom: 30px;
+      margin: 30px auto;
       width: 100%;
       max-width: 700px;
       display: flex;
@@ -49,7 +53,7 @@
     }
 
     input[type="text"], select {
-      width: 80%;
+      width: 100%;
       max-width: 600px;
       padding: 12px;
       font-size: 18px;
@@ -98,6 +102,27 @@
       border-radius: 4px;
       box-shadow: 0 0 8px #00ffff;
     }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .flex-row > div {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flex-row label {
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 <body>
@@ -130,11 +155,18 @@
 
       <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
       <div id="advancedCloak" class="collapsed">
-        <label for="cloakTitle">Custom Page Title:</label>
-        <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
+        <div class="flex-row">
+          <div>
+            <label for="cloakTitle">Custom Page Title:</label>
+            <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
+          </div>
+          <div>
+            <label for="cloakIcon">Custom Icon</label>
+            <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
+          </div>
+        </div>
 
-        <label for="cloakIcon">Custom Icon URL:</label>
-        <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
+        <input type="text" id="cloakURL" placeholder="e.g. https://example.com/favicon.ico">
 
         <button onclick="applyCloak()">Apply Custom Cloak</button>
         <button onclick="resetCloak()">Reset to Default</button>
