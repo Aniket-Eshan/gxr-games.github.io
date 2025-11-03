@@ -83,7 +83,8 @@
 
     .toggle {
       font-size: 1.2em;
-      margin-top: 20px;
+      margin-top: 12px;
+      margin-bottom: 12px;
       cursor: pointer;
       user-select: none;
       color: #f4c430;
@@ -102,46 +103,49 @@
 <body>
   <div class="overlay"></div>
   <div class="content">
-    <h1>⚙️ Supernova FX Settings</h1>
+    <h1>⚙️ Settings</h1>
 
-    <div class="toggle" onclick="toggleSection('basicCloak', this)">▼ Basic Cloaks</div>
-    <div id="basicCloak" class="block-section">
-      <p>Select a preset cloak:</p>
-      <select id="presetCloak" onchange="previewIcon()">
-        <option value="">-- Choose a cloak --</option>
-        <option value="Amplify|https://www.amplify.com/favicon.ico">Amplify</option>
-        <option value="Big Ideas Math|https://www.bigideasmath.com/favicon.ico">Big Ideas Math</option>
-        <option value="Canvas|https://canvas.instructure.com/favicon.ico">Canvas</option>
-        <option value="Desmos Graphing Calculator|https://www.desmos.com/favicon.ico">Desmos Graphing Calculator</option>
-        <option value="Google Docs|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x32.png">Google Docs</option>
-        <option value="Google Sheets|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png">Google Sheets</option>
-        <option value="Google Slides|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_presentation_x32.png">Google Slides</option>
-        <option value="IXL|https://www.ixl.com/favicon.ico">IXL</option>
-        <option value="i-Ready|https://cdn.i-ready.com/favicon.ico">i-Ready</option>
-        <option value="Wikipedia|https://en.wikipedia.org/favicon.ico">Wikipedia</option>
-      </select>
+    <div class="block-section">
+      <div class="toggle" onclick="toggleSection('basicCloak', this)">▼ Basic Cloaks</div>
+      <div id="basicCloak">
+        <p>Select a preset cloak:</p>
+        <select id="presetCloak" onchange="previewIcon()">
+          <option value="">-- Choose a cloak --</option>
+          <option value="Amplify|https://www.amplify.com/favicon.ico">Amplify</option>
+          <option value="Big Ideas Math|https://www.bigideasmath.com/favicon.ico">Big Ideas Math</option>
+          <option value="Canvas|https://canvas.instructure.com/favicon.ico">Canvas</option>
+          <option value="Desmos Graphing Calculator|https://www.desmos.com/favicon.ico">Desmos Graphing Calculator</option>
+          <option value="Google Docs|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x32.png">Google Docs</option>
+          <option value="Google Sheets|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadsheet_x32.png">Google Sheets</option>
+          <option value="Google Slides|https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_presentation_x32.png">Google Slides</option>
+          <option value="IXL|https://www.ixl.com/favicon.ico">IXL</option>
+          <option value="i-Ready|https://cdn.i-ready.com/favicon.ico">i-Ready</option>
+          <option value="Wikipedia|https://en.wikipedia.org/favicon.ico">Wikipedia</option>
+        </select>
 
-      <img id="iconPreview" src="" alt="Icon Preview">
+        <img id="iconPreview" src="" alt="Icon Preview">
 
-      <button onclick="applyPreset()">Apply Preset</button>
-    </div>
+        <button onclick="applyPreset()">Apply Preset</button>
+      </div>
 
-    <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
-    <div id="advancedCloak" class="block-section collapsed">
-      <label for="cloakTitle">Custom Page Title:</label>
-      <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
+      <div class="toggle" onclick="toggleSection('advancedCloak', this)">▶ Advanced Cloak</div>
+      <div id="advancedCloak" class="collapsed">
+        <label for="cloakTitle">Custom Page Title:</label>
+        <input type="text" id="cloakTitle" placeholder="e.g. Google Docs">
 
-      <label for="cloakIcon">Custom Icon URL:</label>
-      <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
+        <label for="cloakIcon">Custom Icon URL:</label>
+        <input type="text" id="cloakIcon" placeholder="e.g. https://example.com/favicon.ico">
 
-      <button onclick="applyCloak()">Apply Custom Cloak</button>
-      <button onclick="resetCloak()">Reset to Default</button>
+        <button onclick="applyCloak()">Apply Custom Cloak</button>
+        <button onclick="resetCloak()">Reset to Default</button>
+      </div>
     </div>
 
     <div class="block-section">
       <button onclick="launchStealth()">Stealth Mode (about:blank)</button>
+      <div style="margin-top: 12px;"></div>
     </div>
-    
+
     <div class="toggle" onclick="window.location.href='index.html'">← Back to Games Section</div>
   </div>
 
@@ -211,6 +215,8 @@
     }
 
     function launchStealth() {
+      if (!confirm("Launch Supernova FX in stealth mode? This will redirect this tab.")) return;
+
       const win = window.open("about:blank", "_blank");
       const doc = win.document;
 
@@ -225,7 +231,7 @@
             <link rel="icon" href="${icon}">
           </head>
           <body style="margin:0;overflow:hidden;">
-            <iframe src="https://supernova-fx.github.io" style="border:none;width:100vw;height:100vh;"></iframe>
+            <iframe src="https://supernova-fx.github.io" referrerpolicy="no-referrer" sandbox style="border:none;width:100vw;height:100vh;"></iframe>
           </body>
         </html>
       `);
