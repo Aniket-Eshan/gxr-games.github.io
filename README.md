@@ -10,3 +10,6 @@
 
 # Thanks!
 ### Thanks for checking out Supernova FX. I hope you enjoy exploring the tools and ideas here.
+
+Supernova FX © 2025 Aniket
+Licensed under the GNU Affero General Public License v3.0
